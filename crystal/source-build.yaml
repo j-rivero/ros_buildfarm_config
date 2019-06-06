@@ -83,7 +83,7 @@ repositories:
   - http://repositories.ros.org/ubuntu/main
 repository_whitelist:
   - gazebo_ros_pkgs
-  - ros_comm
+  - sros2
 skip_ignored_repositories: true
 targets:
   ubuntu:
