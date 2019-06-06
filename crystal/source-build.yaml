@@ -81,6 +81,10 @@ repositories:
   urls:
   - http://repo.ros2.org/ubuntu/testing
   - http://repositories.ros.org/ubuntu/main
+repository_whitelist:
+  - gazebo_ros_pkgs
+  - ros_comm
+skip_ignored_repositories: true
 targets:
   ubuntu:
     bionic:
