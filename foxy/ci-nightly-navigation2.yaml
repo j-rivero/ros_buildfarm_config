@@ -1,22 +1,32 @@
 %YAML 1.1
-# ROS buildfarm release-build file
+# ROS buildfarm ci-build file
 ---
-abi_incompatibility_assumed: true
-
 build_environment_variables:
-  RTI_NC_LICENSE_ACCEPTED: 'yes'
-
-jenkins_binary_job_priority: 80
-jenkins_binary_job_timeout: 120
-jenkins_source_job_priority: 76
-jenkins_source_job_timeout: 30
-notifications:
-  emails:
-  - steven+build.ros2.org@openrobotics.org
-  - ros2-buildfarm-dashing@googlegroups.com
-  maintainers: true
-sync:
-  package_count: 400
+  CMAKE_PREFIX_PATH: '/opt/ros/melodic:$CMAKE_PREFIX_PATH'
+  LD_LIBRARY_PATH: '/opt/ros/melodic/lib:$LD_LIBRARY_PATH'
+  PYTHONPATH: '/opt/ros/melodic/lib/python2.7/dist-packages:$PYTHONPATH'
+  ROS_PACKAGE_PATH: '/opt/ros/melodic/share'
+  ROS_PYTHON_VERSION: '3'
+build_tool: colcon
+build_tool_args: '--cmake-args --no-warn-unused-cli'
+install_packages:
+- libasio-dev # for FastRTPS
+- libtinyxml2-dev # for FastRTPS
+- ros-melodic-common-msgs
+- ros-melodic-rosbash
+- ros-melodic-roscpp
+- ros-melodic-roscpp-tutorials
+- ros-melodic-roslaunch
+- ros-melodic-rosmsg
+- ros-melodic-rospy-tutorials
+- ros-melodic-tf2-msgs
+jenkins_job_label: ci-agent
+jenkins_job_priority: 50
+jenkins_job_timeout: 240
+jenkins_job_upstream_triggers:
+- nightly-navigation2-prerequisites
+repos_files:
+- https://github.com/ros2/ros2/raw/navigation2/navigation2.repos
 repositories:
   keys:
   - |
@@ -82,13 +92,14 @@ repositories:
     =Vgio
     -----END PGP PUBLIC KEY BLOCK-----
   urls:
-  - http://repo.ros2.org/ubuntu/building
+  - http://repo.ros2.org/ubuntu/testing
   - http://repositories.ros.org/ubuntu/main
-target_repository: http://repo.ros2.org/ubuntu/building
 targets:
   ubuntu:
-    bionic:
+    focal:
       amd64:
-type: release-build
-upload_credential_id: 1e7d4696-7fd4-4bc6-8c87-ebc7b6ce16e5
-version: 2
+type: ci-build
+underlay_from_ci_jobs:
+- nightly-fastrtps
+- nightly-navigation2-prerequisites
+version: 1
