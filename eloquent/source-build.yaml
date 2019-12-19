@@ -92,5 +92,9 @@ test_commits:
   default: true
 test_pull_requests:
   default: false
+tests_require_gpu:
+  default: true
+  run_only_gpu_test:
+    default: true
 type: source-build
 version: 2
