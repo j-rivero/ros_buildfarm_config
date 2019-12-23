@@ -15,6 +15,7 @@ distributions:
       ubv8: crystal/release-bionic-arm64-build.yaml
     source_builds:
       default: crystal/source-build.yaml
+      gpu: crystal/source-gpu-build.yaml
   dashing:
     ci_builds:
       nightly-connext: dashing/ci-nightly-connext.yaml
@@ -37,6 +38,7 @@ distributions:
       ubhf: dashing/release-bionic-armhf-build.yaml
     source_builds:
       default: dashing/source-build.yaml
+      gpu: dashing/source-gpu-build.yaml
   eloquent:
     ci_builds:
       nightly-connext: eloquent/ci-nightly-connext.yaml
