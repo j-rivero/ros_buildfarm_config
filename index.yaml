@@ -8,8 +8,7 @@ distributions:
       overlay: crystal/ci-overlay.yaml
     doc_builds: {}
     notification_emails:
-      - steven+build.ros2.org@openrobotics.org
-      - ros2-buildfarm-crystal@googlegroups.com
+      - jrivero+build.ros2.org@openrobotics.org
     release_builds:
       default: crystal/release-build.yaml
       ubv8: crystal/release-bionic-arm64-build.yaml
@@ -30,8 +29,7 @@ distributions:
       overlay: dashing/ci-overlay.yaml
     doc_builds: {}
     notification_emails:
-      - steven+build.ros2.org@openrobotics.org
-      - ros2-buildfarm-dashing@googlegroups.com
+      - jrivero+build.ros2.org@openrobotics.org
     release_builds:
       default: dashing/release-build.yaml
       ubv8: dashing/release-bionic-arm64-build.yaml
@@ -56,13 +54,13 @@ distributions:
     doc_builds: {}
     notification_emails:
       - michael+build.ros2.org@openrobotics.org
-      - ros2-buildfarm-eloquent@googlegroups.com
     release_builds:
       default: eloquent/release-build.yaml
       ubhf: eloquent/release-bionic-armhf-build.yaml
       ubv8: eloquent/release-bionic-arm64-build.yaml
     source_builds:
       default: eloquent/source-build.yaml
+      gpu: eloquent/source-gpu-build.yaml
   foxy:
     ci_builds:
       nightly-connext: foxy/ci-nightly-connext.yaml
@@ -78,17 +76,16 @@ distributions:
       overlay: foxy/ci-overlay.yaml
     doc_builds: {}
     notification_emails:
-      - jacob+build.ros2.org@openrobotics.org
-      - ros2-buildfarm-foxy@googlegroups.com
+      - jrivero@openrobotics.org
     release_builds:
       default: foxy/release-build.yaml
       ubhf: foxy/release-bionic-armhf-build.yaml
       ubv8: foxy/release-bionic-arm64-build.yaml
     source_builds:
       default: foxy/source-build.yaml
-jenkins_url: http://build.ros2.org
+jenkins_url: http://18.206.154.49/
 notification_emails:
-  - steven+build.ros2.org@openrobotics.org
+  - jrivero+build.ros2.org@openrobotics.org
 prerequisites:
   debian_repositories:
   - http://repo.ros2.org/ubuntu/building
