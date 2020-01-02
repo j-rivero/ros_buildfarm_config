@@ -94,7 +94,5 @@ test_pull_requests:
   default: false
 tests_require_gpu:
   default: true
-  run_only_gpu_tests:
-    default: true
 type: source-build
 version: 2
