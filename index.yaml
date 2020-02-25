@@ -10,7 +10,7 @@ distributions:
       default: foxy/release-build.yaml
     source_builds:
       default: foxy/source-build.yaml
-jenkins_url: http://3.82.221.139/
+jenkins_url: http://citest2.ros2.org
 notification_emails:
   - jrivero+test.ros2.org@openrobotics.org
 prerequisites:
