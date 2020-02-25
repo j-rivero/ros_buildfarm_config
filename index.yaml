@@ -2,94 +2,21 @@
 # ROS buildfarm index file
 ---
 distributions:
-  crystal:
-    ci_builds:
-      nightly: crystal/ci-nightly.yaml
-      overlay: crystal/ci-overlay.yaml
-    doc_builds: {}
-    notification_emails:
-      - jrivero+build.ros2.org@openrobotics.org
-    release_builds:
-      default: crystal/release-build.yaml
-      ubv8: crystal/release-bionic-arm64-build.yaml
-    source_builds:
-      default: crystal/source-build.yaml
-      gpu: crystal/source-gpu-build.yaml
-  dashing:
-    ci_builds:
-      nightly-connext: dashing/ci-nightly-connext.yaml
-      nightly-cyclonedds: dashing/ci-nightly-cyclonedds.yaml
-      nightly-debug: dashing/ci-nightly-debug.yaml
-      nightly-extra-rmw-release: dashing/ci-nightly-extra-rmw-release.yaml
-      nightly-fastrtps: dashing/ci-nightly-fastrtps.yaml
-      nightly-fastrtps-dynamic: dashing/ci-nightly-fastrtps-dynamic.yaml
-      nightly-opensplice: dashing/ci-nightly-opensplice.yaml
-      nightly-performance: dashing/ci-nightly-performance.yaml
-      nightly-release: dashing/ci-nightly-release.yaml
-      overlay: dashing/ci-overlay.yaml
-    doc_builds: {}
-    notification_emails:
-      - jrivero+build.ros2.org@openrobotics.org
-    release_builds:
-      default: dashing/release-build.yaml
-      ubv8: dashing/release-bionic-arm64-build.yaml
-      ubhf: dashing/release-bionic-armhf-build.yaml
-    source_builds:
-      default: dashing/source-build.yaml
-      gpu: dashing/source-gpu-build.yaml
-  eloquent:
-    ci_builds:
-      nightly-connext: eloquent/ci-nightly-connext.yaml
-      nightly-cyclonedds: eloquent/ci-nightly-cyclonedds.yaml
-      nightly-debug: eloquent/ci-nightly-debug.yaml
-      nightly-extra-rmw-release: eloquent/ci-nightly-extra-rmw-release.yaml
-      nightly-fastrtps: eloquent/ci-nightly-fastrtps.yaml
-      nightly-fastrtps-dynamic: eloquent/ci-nightly-fastrtps-dynamic.yaml
-      nightly-navigation2: eloquent/ci-nightly-navigation2.yaml
-      nightly-navigation2-prerequisites: eloquent/ci-nightly-navigation2-prerequisites.yaml
-      nightly-opensplice: eloquent/ci-nightly-opensplice.yaml
-      nightly-performance: eloquent/ci-nightly-performance.yaml
-      nightly-release: eloquent/ci-nightly-release.yaml
-      overlay: eloquent/ci-overlay.yaml
-    doc_builds: {}
-    notification_emails:
-      - michael+build.ros2.org@openrobotics.org
-    release_builds:
-      default: eloquent/release-build.yaml
-      ubhf: eloquent/release-bionic-armhf-build.yaml
-      ubv8: eloquent/release-bionic-arm64-build.yaml
-    source_builds:
-      default: eloquent/source-build.yaml
-      gpu: eloquent/source-gpu-build.yaml
   foxy:
-    ci_builds:
-      nightly-connext: foxy/ci-nightly-connext.yaml
-      nightly-cyclonedds: foxy/ci-nightly-cyclonedds.yaml
-      nightly-debug: foxy/ci-nightly-debug.yaml
-      nightly-extra-rmw-release: foxy/ci-nightly-extra-rmw-release.yaml
-      nightly-fastrtps: foxy/ci-nightly-fastrtps.yaml
-      nightly-fastrtps-dynamic: foxy/ci-nightly-fastrtps-dynamic.yaml
-      nightly-navigation2: foxy/ci-nightly-navigation2.yaml
-      nightly-navigation2-prerequisites: foxy/ci-nightly-navigation2-prerequisites.yaml
-      nightly-opensplice: foxy/ci-nightly-opensplice.yaml
-      nightly-release: foxy/ci-nightly-release.yaml
-      overlay: foxy/ci-overlay.yaml
     doc_builds: {}
     notification_emails:
       - jrivero@openrobotics.org
     release_builds:
       default: foxy/release-build.yaml
-      ubhf: foxy/release-bionic-armhf-build.yaml
-      ubv8: foxy/release-bionic-arm64-build.yaml
     source_builds:
       default: foxy/source-build.yaml
-jenkins_url: http://18.206.154.49/
+jenkins_url: http://3.82.221.139/
 notification_emails:
-  - jrivero+build.ros2.org@openrobotics.org
+  - jrivero+test.ros2.org@openrobotics.org
 prerequisites:
   debian_repositories:
-  - http://repo.ros2.org/ubuntu/building
-  - http://repositories.ros.org/ubuntu/main
+  - http://foo/ubuntu/building
+  - http://foo/ubuntu/main
   debian_repository_keys:
   - |
     -----BEGIN PGP PUBLIC KEY BLOCK-----
