@@ -10,7 +10,7 @@ distributions:
       default: eloquent/release-build.yaml
     source_builds:
       default: eloquent/source-build.yaml
-jenkins_url: http://citest2.ros2.org
+jenkins_url: https://citest2.ros2.org
 notification_emails:
   - jrivero+test.ros2.org@openrobotics.org
 prerequisites:
