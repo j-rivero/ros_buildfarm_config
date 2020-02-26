@@ -2,14 +2,14 @@
 # ROS buildfarm index file
 ---
 distributions:
-  foxy:
+  eloquent:
     doc_builds: {}
     notification_emails:
       - jrivero@openrobotics.org
     release_builds:
-      default: foxy/release-build.yaml
+      default: eloquent/release-build.yaml
     source_builds:
-      default: foxy/source-build.yaml
+      default: eloquent/source-build.yaml
 jenkins_url: http://citest2.ros2.org
 notification_emails:
   - jrivero+test.ros2.org@openrobotics.org
