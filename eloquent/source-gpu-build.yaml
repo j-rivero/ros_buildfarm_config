@@ -13,6 +13,8 @@ notifications:
   committers: true
   compiler_warnings: true
   emails:
+  - steven+build.ros2.org@openrobotics.org
+  - ros2-buildfarm-dashing@googlegroups.com
   - jrivero@openrobotics.org
   maintainers: true
 repositories:
