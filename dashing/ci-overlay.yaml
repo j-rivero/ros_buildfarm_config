@@ -24,7 +24,7 @@ install_packages:
 - ros-melodic-rospy-tutorials
 - ros-melodic-tf2-msgs
 jenkins_job_label: ci-agent
-jenkins_job_priority: 49
+jenkins_job_priority: 59
 jenkins_job_timeout: 240
 repos_files:
 - https://github.com/ros2/ros2/raw/dashing/ros2.repos
@@ -101,5 +101,5 @@ targets:
       amd64:
 type: ci-build
 underlay_from_ci_jobs:
-- nightly-release
+- nightly-extra-rmw-release
 version: 1

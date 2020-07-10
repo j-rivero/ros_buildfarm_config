@@ -1,32 +1,20 @@
 %YAML 1.1
-# ROS buildfarm ci-build file
+# ROS buildfarm source-build file
 ---
 build_environment_variables:
-  CMAKE_PREFIX_PATH: '/opt/ros/melodic:$CMAKE_PREFIX_PATH'
-  LD_LIBRARY_PATH: '/opt/ros/melodic/lib:$LD_LIBRARY_PATH'
-  PYTHONPATH: '/opt/ros/melodic/lib/python2.7/dist-packages:$PYTHONPATH'
-  ROS_PACKAGE_PATH: '/opt/ros/melodic/share'
-  ROS_PYTHON_VERSION: '3'
+  ROS_PYTHON_VERSION: 3
+  RTI_NC_LICENSE_ACCEPTED: 'yes'
 build_tool: colcon
-build_tool_args: '--cmake-args --no-warn-unused-cli'
-install_packages:
-- libasio-dev # for FastRTPS
-- libtinyxml2-dev # for FastRTPS
-- ros-melodic-common-msgs
-- ros-melodic-rosbash
-- ros-melodic-roscpp
-- ros-melodic-roscpp-tutorials
-- ros-melodic-roslaunch
-- ros-melodic-rosmsg
-- ros-melodic-rospy-tutorials
-- ros-melodic-tf2-msgs
-jenkins_job_label: ci-agent
-jenkins_job_priority: 50
-jenkins_job_timeout: 240
-jenkins_job_upstream_triggers:
-- nightly-fastrtps
-repos_files:
-- https://github.com/ros-planning/navigation2/raw/master/tools/ros2_dependencies.repos
+jenkins_commit_job_priority: 50
+jenkins_job_timeout: 120
+jenkins_pull_request_job_priority: 40
+notifications:
+  committers: true
+  compiler_warnings: true
+  emails:
+  - steven+build.ros2.org@openrobotics.org
+  - ros2-buildfarm-rolling@googlegroups.com
+  maintainers: true
 repositories:
   keys:
   - |
@@ -93,12 +81,16 @@ repositories:
     -----END PGP PUBLIC KEY BLOCK-----
   urls:
   - http://repo.ros2.org/ubuntu/testing
-  - http://repositories.ros.org/ubuntu/main
+  - http://repositories.ros.org/ubuntu/testing
+repository_blacklist:
+- ros_workspace
 targets:
   ubuntu:
     focal:
       amd64:
-type: ci-build
-underlay_from_ci_jobs:
-- nightly-fastrtps
-version: 1
+test_commits:
+  default: true
+test_pull_requests:
+  default: false
+type: source-build
+version: 2

@@ -1,22 +1,33 @@
 %YAML 1.1
-# ROS buildfarm release-build file
+# ROS buildfarm ci-build file
 ---
-abi_incompatibility_assumed: true
-jenkins_binary_job_label: buildagent_arm64 || crystal_binarydeb_ubv8
-jenkins_binary_job_priority: 81
-jenkins_binary_job_timeout: 720
-jenkins_source_job_priority: 77
-jenkins_source_job_timeout: 30
-notifications:
-  emails:
-  - steven+build.ros2.org@openrobotics.org
-  - ros2-buildfarm-crystal@googlegroups.com
-  maintainers: true
-package_blacklist:
-  - ets_plugin
-  - mrpt2
-sync:
-  package_count: 200
+build_environment_variables:
+  CMAKE_PREFIX_PATH: '/opt/ros/noetic:$CMAKE_PREFIX_PATH'
+  LD_LIBRARY_PATH: '/opt/ros/noetic/lib:$LD_LIBRARY_PATH'
+  NDDSHOME: '/opt/rti.com/rti_connext_dds-5.3.1'
+  PYTHONPATH: '/opt/ros/noetic/lib/python3/dist-packages:$PYTHONPATH'
+  ROS_PYTHON_VERSION: '3'
+  RTI_NC_LICENSE_ACCEPTED: 'yes'
+build_tool: colcon
+build_tool_args: '--cmake-args -DCMAKE_BUILD_TYPE=Release --no-warn-unused-cli'
+install_packages:
+- default-jdk # for CycloneDDS
+- libasio-dev # for FastRTPS
+- libtinyxml2-dev # for FastRTPS
+- maven # for CycloneDDS
+- ros-noetic-common-msgs
+- ros-noetic-rosbash
+- ros-noetic-roscpp
+- ros-noetic-roscpp-tutorials
+- ros-noetic-roslaunch
+- ros-noetic-rosmsg
+- ros-noetic-rospy-tutorials
+- ros-noetic-tf2-msgs
+jenkins_job_label: ci-agent
+jenkins_job_priority: 50
+jenkins_job_timeout: 240
+repos_files:
+- https://github.com/ros2/ros2/raw/master/ros2.repos
 repositories:
   keys:
   - |
@@ -82,13 +93,13 @@ repositories:
     =Vgio
     -----END PGP PUBLIC KEY BLOCK-----
   urls:
-  - http://repo.ros2.org/ubuntu/building
-  - http://repositories.ros.org/ubuntu/main
-target_repository: http://repo.ros2.org/ubuntu/building
+  - http://repo.ros2.org/ubuntu/testing
+  - http://repositories.ros.org/ubuntu/testing
 targets:
   ubuntu:
-    bionic:
-      arm64:
-type: release-build
-upload_credential_id: 1e7d4696-7fd4-4bc6-8c87-ebc7b6ce16e5
-version: 2
+    focal:
+      amd64:
+type: ci-build
+underlay_from_ci_jobs:
+- nightly-extra-rmw-release
+version: 1

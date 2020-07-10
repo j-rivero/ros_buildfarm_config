@@ -2,18 +2,6 @@
 # ROS buildfarm index file
 ---
 distributions:
-  crystal:
-    ci_builds:
-      nightly: crystal/ci-nightly.yaml
-      overlay: crystal/ci-overlay.yaml
-    doc_builds: {}
-    notification_emails:
-      - jrivero+build.ros2.org@openrobotics.org
-    release_builds:
-      default: crystal/release-build.yaml
-      ubv8: crystal/release-bionic-arm64-build.yaml
-    source_builds:
-      default: crystal/source-build.yaml
   dashing:
     ci_builds:
       nightly-connext: dashing/ci-nightly-connext.yaml
@@ -28,7 +16,8 @@ distributions:
       overlay: dashing/ci-overlay.yaml
     doc_builds: {}
     notification_emails:
-      - jrivero+build.ros2.org@openrobotics.org
+      - steven+build.ros2.org@openrobotics.org
+      - ros2-buildfarm-dashing@googlegroups.com
     release_builds:
       default: dashing/release-build.yaml
       ubv8: dashing/release-bionic-arm64-build.yaml
@@ -44,8 +33,6 @@ distributions:
       nightly-extra-rmw-release: eloquent/ci-nightly-extra-rmw-release.yaml
       nightly-fastrtps: eloquent/ci-nightly-fastrtps.yaml
       nightly-fastrtps-dynamic: eloquent/ci-nightly-fastrtps-dynamic.yaml
-      nightly-navigation2: eloquent/ci-nightly-navigation2.yaml
-      nightly-navigation2-prerequisites: eloquent/ci-nightly-navigation2-prerequisites.yaml
       nightly-opensplice: eloquent/ci-nightly-opensplice.yaml
       nightly-performance: eloquent/ci-nightly-performance.yaml
       nightly-release: eloquent/ci-nightly-release.yaml
@@ -53,6 +40,7 @@ distributions:
     doc_builds: {}
     notification_emails:
       - michael+build.ros2.org@openrobotics.org
+      - ros2-buildfarm-eloquent@googlegroups.com
     release_builds:
       default: eloquent/release-build.yaml
       ubhf: eloquent/release-bionic-armhf-build.yaml
@@ -63,28 +51,61 @@ distributions:
   foxy:
     ci_builds:
       nightly-connext: foxy/ci-nightly-connext.yaml
+      nightly-cross-vendor-connext-cyclonedds: foxy/ci-nightly-cross-vendor-connext-cyclonedds.yaml
+      nightly-cross-vendor-connext-fastrtps: foxy/ci-nightly-cross-vendor-connext-fastrtps.yaml
+      nightly-cross-vendor-connext-fastrtps-dynamic: foxy/ci-nightly-cross-vendor-connext-fastrtps-dynamic.yaml
+      nightly-cross-vendor-cyclonedds-fastrtps: foxy/ci-nightly-cross-vendor-cyclonedds-fastrtps.yaml
+      nightly-cross-vendor-cyclonedds-fastrtps-dynamic: foxy/ci-nightly-cross-vendor-cyclonedds-fastrtps-dynamic.yaml
+      nightly-cross-vendor-fastrtps-fastrtps-dynamic: foxy/ci-nightly-cross-vendor-fastrtps-fastrtps-dynamic.yaml
       nightly-cyclonedds: foxy/ci-nightly-cyclonedds.yaml
       nightly-debug: foxy/ci-nightly-debug.yaml
       nightly-extra-rmw-release: foxy/ci-nightly-extra-rmw-release.yaml
       nightly-fastrtps: foxy/ci-nightly-fastrtps.yaml
       nightly-fastrtps-dynamic: foxy/ci-nightly-fastrtps-dynamic.yaml
-      nightly-navigation2: foxy/ci-nightly-navigation2.yaml
-      nightly-navigation2-prerequisites: foxy/ci-nightly-navigation2-prerequisites.yaml
-      nightly-opensplice: foxy/ci-nightly-opensplice.yaml
+      nightly-performance: foxy/ci-nightly-performance.yaml
       nightly-release: foxy/ci-nightly-release.yaml
       overlay: foxy/ci-overlay.yaml
     doc_builds: {}
     notification_emails:
-      - jrivero@openrobotics.org
+      - jacob+build.ros2.org@openrobotics.org
+      - ros2-buildfarm-foxy@googlegroups.com
     release_builds:
       default: foxy/release-build.yaml
-      ubhf: foxy/release-bionic-armhf-build.yaml
-      ubv8: foxy/release-bionic-arm64-build.yaml
+      # TODO(jacobperron): reenable when focal issues are resolved
+      # See: https://github.com/osrf/multiarch-docker-image-generation/issues/38
+      # ubhf: foxy/release-focal-armhf-build.yaml
+      ubv8: foxy/release-focal-arm64-build.yaml
     source_builds:
       default: foxy/source-build.yaml
-jenkins_url: http://18.206.154.49/
+  rolling:
+    ci_builds:
+      nightly-connext: rolling/ci-nightly-connext.yaml
+      nightly-cross-vendor-connext-cyclonedds: rolling/ci-nightly-cross-vendor-connext-cyclonedds.yaml
+      nightly-cross-vendor-connext-fastrtps: rolling/ci-nightly-cross-vendor-connext-fastrtps.yaml
+      nightly-cross-vendor-connext-fastrtps-dynamic: rolling/ci-nightly-cross-vendor-connext-fastrtps-dynamic.yaml
+      nightly-cross-vendor-cyclonedds-fastrtps: rolling/ci-nightly-cross-vendor-cyclonedds-fastrtps.yaml
+      nightly-cross-vendor-cyclonedds-fastrtps-dynamic: rolling/ci-nightly-cross-vendor-cyclonedds-fastrtps-dynamic.yaml
+      nightly-cross-vendor-fastrtps-fastrtps-dynamic: rolling/ci-nightly-cross-vendor-fastrtps-fastrtps-dynamic.yaml
+      nightly-cyclonedds: rolling/ci-nightly-cyclonedds.yaml
+      nightly-debug: rolling/ci-nightly-debug.yaml
+      nightly-extra-rmw-release: rolling/ci-nightly-extra-rmw-release.yaml
+      nightly-fastrtps: rolling/ci-nightly-fastrtps.yaml
+      nightly-fastrtps-dynamic: rolling/ci-nightly-fastrtps-dynamic.yaml
+      nightly-performance: rolling/ci-nightly-performance.yaml
+      nightly-release: rolling/ci-nightly-release.yaml
+      overlay: rolling/ci-overlay.yaml
+    doc_builds: {}
+    notification_emails:
+      - steven+build.ros2.org@openrobotics.org
+      - ros2-buildfarm-rolling@googlegroups.com
+    release_builds:
+      default: rolling/release-build.yaml
+      ufv8: rolling/release-focal-arm64-build.yaml
+    source_builds:
+      default: rolling/source-build.yaml
+jenkins_url: http://build.ros2.org
 notification_emails:
-  - jrivero+build.ros2.org@openrobotics.org
+  - steven+build.ros2.org@openrobotics.org
 prerequisites:
   debian_repositories:
   - http://repo.ros2.org/ubuntu/building

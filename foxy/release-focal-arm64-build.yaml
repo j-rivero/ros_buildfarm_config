@@ -3,9 +3,9 @@
 ---
 abi_incompatibility_assumed: true
 jenkins_binary_job_label: buildagent_arm64 || foxy_binarydeb_ubv8
-jenkins_binary_job_priority: 78
+jenkins_binary_job_priority: 87
 jenkins_binary_job_timeout: 720
-jenkins_source_job_priority: 74
+jenkins_source_job_priority: 77
 jenkins_source_job_timeout: 30
 notifications:
   emails:
@@ -13,7 +13,7 @@ notifications:
   - ros2-buildfarm-foxy@googlegroups.com
   maintainers: true
 sync:
-  package_count: 290
+  package_count: 381
 repositories:
   keys:
   - |
@@ -80,7 +80,7 @@ repositories:
     -----END PGP PUBLIC KEY BLOCK-----
   urls:
   - http://repo.ros2.org/ubuntu/building
-  - http://repositories.ros.org/ubuntu/main
+  - http://repositories.ros.org/ubuntu/testing
 target_repository: http://repo.ros2.org/ubuntu/building
 targets:
   ubuntu:
