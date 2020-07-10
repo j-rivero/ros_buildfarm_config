@@ -86,6 +86,9 @@ repositories:
   - http://repositories.ros.org/ubuntu/main
 repository_blacklist:
 - ros_workspace
+repository_whitelist:
+  - gazebo_ros_pkgs
+skip_ignored_repositories: true
 targets:
   ubuntu:
     bionic:
